@@ -1,0 +1,29 @@
+{
+  "name": "academic-api",
+  "version": "1.0.0",
+  "description": "Academic rest api for Jonathan A, Juliana C, Mateo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JonathanArroyaveGonzalez/Api-rest.git"
+  },
+  "keywords": [
+    "academic",
+    "rest",
+    "api",
+    "student"
+  ],
+  "author": "Jonathan A, Juliana C, Mateo.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanArroyaveGonzalez/Api-rest/issues"
+  },
+  "homepage": "https://github.com/JonathanArroyaveGonzalez/Api-rest#readme",
+  "dependencies": {
+    "config": "^3.3.9",
+    "mongoose": "^6.9.1"
+  }
+}

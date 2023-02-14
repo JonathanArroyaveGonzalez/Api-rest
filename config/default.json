@@ -1,0 +1,10 @@
+{
+    "db-connections":{
+        "mongodb":{
+            "host":"cluster0.sz9m47e.mongodb.net",
+            "user":"api-rest-user",
+            "password":"4q6SMnPk6oaQXq3X",
+            "dbname":"apiRestDB" 
+        }
+    }
+}
