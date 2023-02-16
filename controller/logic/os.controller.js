@@ -1,50 +1,47 @@
 /* Dto */
-const mobile_deviceDto = require("../../model/dto/mobile_device.dto");
+const osDto = require("../../model/dto/os.dto");
 const config = require("config");
 /* Helper */ //falta inplementar helpers
 //const helper = require("../helpers/general.helper");
 //const notHelper = require("../helpers/notification.helper");
 
-exports.createMobile_device = (req, res, next) => {
-  console.log(req.body);/* Mensaje con el contenido del req */
-
+exports.createOs = (req, res, next) => {
   let std = {
     name: req.body.name,
-    os: req.body.os,
-    ram: req.body.ram,
-    rom: req.body.rom,
-    model: req.body.model,
-    serial: req.body.serial,
+    kernel: req.body.kernel,
+    driver: req.body.driver,
+    devices: req.body.devices,
     memory: req.body.memory,
-    battery: req.body.battery
+    requirements: req.body.requirements,
+    interface: req.body.interface,
+    cache: req.body.cache
   };
-  mobile_deviceDto.create(std, (err, data) => {
+  osDto.create(std, (err, data) => {
     if (err) {
-      console.log(err);
       return res.status(400).json({
         error: err,
       });
     }
-    
+
     res.status(200).json({
       info: data,
     });
-
+    
   });
 };
 
-exports.updateMobile_device = (req, res, next) => {
+exports.updateOs = (req, res, next) => {
   let std = {
     name: req.body.name,
-    os: req.body.os,
-    ram: req.body.ram,
-    rom: req.body.rom,
-    model: req.body.model,
-    serial: req.body.serial,
+    kernel: req.body.kernel,
+    driver: req.body.driver,
+    devices: req.body.devices,
     memory: req.body.memory,
-    battery: req.body.battery
+    requirements: req.body.requirements,
+    interface: req.body.interface,
+    cache: req.body.cache
   };
-  mobile_deviceDto.update({ _id: req.body.id }, std, (err, data) => {
+  osDto.update({ _id: req.body.id }, std, (err, data) => {
     if (err) {
       return res.status(400).json({
         error: err,
@@ -58,7 +55,7 @@ exports.updateMobile_device = (req, res, next) => {
 };
 
 exports.getAll = (req, res, next) => {
-  mobile_deviceDto.getAll({}, (err, data) => {
+  osDto.getAll({}, (err, data) => {
     if (err) {
       return res.status(400).json({
         error: err,
@@ -72,7 +69,7 @@ exports.getAll = (req, res, next) => {
 };
 
 exports.getByCode = (req, res, next) => {
-  mobile_deviceDto.getByCode({ code: req.params.code }, (err, data) => {
+  osDto.getByCode({ code: req.params.code }, (err, data) => {
     if (err) {
       return res.status(400).json({
         error: err,
@@ -85,8 +82,8 @@ exports.getByCode = (req, res, next) => {
   });
 };
 
-exports.deleteMobile_device = () => {
-  mobile_deviceDto.delete({ _id: req.body.id }, (err, data) => {
+exports.deleteOs = () => {
+  osDto.delete({ _id: req.body.id }, (err, data) => {
     if (err) {
       return res.status(400).json({
         error: err,
