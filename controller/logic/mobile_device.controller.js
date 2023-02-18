@@ -25,7 +25,6 @@ exports.createMobile_device = (req, res, next) => {
         error: err,
       });
     }
-    
     res.status(200).json({
       info: data,
     });
@@ -78,7 +77,6 @@ exports.getByCode = (req, res, next) => {
         error: err,
       });
     }
-
     res.status(200).json({
       info: data,
     });

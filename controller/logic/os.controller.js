@@ -58,12 +58,12 @@ exports.getAll = (req, res, next) => {
   osDto.getAll({}, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 
     res.status(200).json({
-      info: data,
+      info: data
     });
   });
 };
@@ -72,12 +72,12 @@ exports.getByCode = (req, res, next) => {
   osDto.getByCode({ code: req.params.code }, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 
     res.status(200).json({
-      info: data,
+      info: data
     });
   });
 };
@@ -86,7 +86,7 @@ exports.deleteOs = () => {
   osDto.delete({ _id: req.body.id }, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 

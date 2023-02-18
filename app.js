@@ -26,6 +26,9 @@ const  urlEncodeParser = bodyParser.urlencoded(
  const MobileRoutes = require("./routes/mobile_device.routes");
  MobileRoutes.mobileDeviceRoutes(app);
  
+ const osRoutes = require("./routes/os.routes");
+ osRoutes.osRoutes(app);
+
  app.listen(port, () =>{
      console.log("Server is running..")
  });

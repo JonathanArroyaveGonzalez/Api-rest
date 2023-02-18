@@ -12,14 +12,14 @@ exports.osRoutes = (app) => {
   });
 
   app.post("/os", (req, res, next) => {
-    controller.createMobile_device(req, res, next);
+    controller.createOs(req, res, next);
   });
 
   app.put("/os", (req, res, next) => {
-    controller.updateMobile_device(req, res, next);
+    controller.updateOs(req, res, next);
   });
 
   app.delete("/os", (req, res, next) => {
-    controller.deleteMobile_device(req, res, next);
+    controller.deleteOs(req, res, next);
   });
 };
