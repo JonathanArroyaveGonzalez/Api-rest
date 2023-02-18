@@ -23,8 +23,11 @@ const  urlEncodeParser = bodyParser.urlencoded(
  });
  
  //falta implementar la ruta de os
+ const osRoutes = require("./routes/os.routes");
  const MobileRoutes = require("./routes/mobile_device.routes");
+ 
  MobileRoutes.mobileDeviceRoutes(app);
+ osRoutes.osRoutes(app);
  
  const osRoutes = require("./routes/os.routes");
  osRoutes.osRoutes(app);
