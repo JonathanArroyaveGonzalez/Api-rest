@@ -1,5 +1,5 @@
 const controller = require("../controller/logic/mobile_device.controller");
-
+/* module .exports para solucionar invocacion en app.js */
 exports.mobileDeviceRoutes = (app) => {
   console.log("Loading routes of Mobile device")
   app.get("/mobile", (req, res, next) => {
