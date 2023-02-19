@@ -3,6 +3,11 @@ const mongoose = require("mongoose");
 
 /* Schema creations */
 const mobile_deviceSchema = new mongoose.Schema({
+    serial:{
+        type: "String",
+        required: true,
+        unique: true
+    },
     name:{
         type: "String",
         required: true
@@ -24,11 +29,6 @@ const mobile_deviceSchema = new mongoose.Schema({
     model:{
         type: "String",
         required: true
-    },
-    serial:{
-        type: "String",
-        required: true,
-        unique: true
     },
     memory:{
         type: "String",

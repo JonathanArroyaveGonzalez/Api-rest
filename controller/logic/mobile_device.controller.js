@@ -1,14 +1,11 @@
 /* Dto */
 const mobile_deviceDto = require("../../model/dto/mobile_device.dto");
 const config = require("config");
-/* Helper */ //falta inplementar helpers
-//const helper = require("../helpers/general.helper");
-//const notHelper = require("../helpers/notification.helper");
+
 
 exports.createMobile_device = (req, res, next) => {
-  console.log(req.body);/* Mensaje con el contenido del req */
 
-  let std = {
+  let mobile = {
     name: req.body.name,
     os: req.body.os,
     ram: req.body.ram,
@@ -18,23 +15,22 @@ exports.createMobile_device = (req, res, next) => {
     memory: req.body.memory,
     battery: req.body.battery
   };
-  mobile_deviceDto.create(std, (err, data) => {
+  mobile_deviceDto.create(mobile, (err, data) => {
     if (err) {
-      console.log(err);
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
     
     res.status(200).json({
-      info: data,
+      info: data
     });
 
   });
 };
 
 exports.updateMobile_device = (req, res, next) => {
-  let std = {
+  let mobile = {
     name: req.body.name,
     os: req.body.os,
     ram: req.body.ram,
@@ -44,15 +40,15 @@ exports.updateMobile_device = (req, res, next) => {
     memory: req.body.memory,
     battery: req.body.battery
   };
-  mobile_deviceDto.update({ _id: req.body.id }, std, (err, data) => {
+  mobile_deviceDto.update({ _id: req.body.id }, mobile, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 
     res.status(201).json({
-      info: data,
+      info: data
     });
   });
 };
@@ -71,28 +67,33 @@ exports.getAll = (req, res, next) => {
   });
 };
 
-exports.getByCode = (req, res, next) => {
-  mobile_deviceDto.getByCode({ code: req.params.code }, (err, data) => {
+exports.getBySerial = (req, res, next) => {
+  mobile_deviceDto.getBySerial({ serial: req.params.serial }, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 
     res.status(200).json({
-      info: data,
+      info: data
     });
   });
 };
 
-exports.deleteMobile_device = () => {
-  mobile_deviceDto.delete({ _id: req.body.id }, (err, data) => {
+
+
+exports.deleteMobile_device = (req, res) => {
+
+  mobile_deviceDto.delete({ serial: req.body.serial }, (err, data) => {
     if (err) {
       return res.status(400).json({
         error: err,
       });
     }
 
-    res.status(204).json();
+    return res.status(204).json({
+      info: data
+    });
   });
 };

@@ -1,12 +1,10 @@
 /* Dto */
 const osDto = require("../../model/dto/os.dto");
 const config = require("config");
-/* Helper */ //falta inplementar helpers
-//const helper = require("../helpers/general.helper");
-//const notHelper = require("../helpers/notification.helper");
+
 
 exports.createOs = (req, res, next) => {
-  let std = {
+  let os = {
     name: req.body.name,
     kernel: req.body.kernel,
     driver: req.body.driver,
@@ -16,22 +14,22 @@ exports.createOs = (req, res, next) => {
     interface: req.body.interface,
     cache: req.body.cache
   };
-  osDto.create(std, (err, data) => {
+  osDto.create(os, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 
     res.status(200).json({
-      info: data,
+      info: data
     });
     
   });
 };
 
 exports.updateOs = (req, res, next) => {
-  let std = {
+  let os = {
     name: req.body.name,
     kernel: req.body.kernel,
     driver: req.body.driver,
@@ -41,15 +39,15 @@ exports.updateOs = (req, res, next) => {
     interface: req.body.interface,
     cache: req.body.cache
   };
-  osDto.update({ _id: req.body.id }, std, (err, data) => {
+  osDto.update({ _id: req.body.id }, os, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 
     res.status(201).json({
-      info: data,
+      info: data
     });
   });
 };
@@ -58,38 +56,42 @@ exports.getAll = (req, res, next) => {
   osDto.getAll({}, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 
     res.status(200).json({
-      info: data,
+      info: data
     });
   });
 };
 
-exports.getByCode = (req, res, next) => {
-  osDto.getByCode({ code: req.params.code }, (err, data) => {
+exports.getByName = (req, res, next) => {
+  osDto.getByName({ name: req.params.name }, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 
     res.status(200).json({
-      info: data,
+      info: data
     });
   });
 };
 
-exports.deleteOs = () => {
-  osDto.delete({ _id: req.body.id }, (err, data) => {
+
+exports.deleteOs = (req, res) => {
+
+  osDto.delete({ name: req.body.name }, (err, data) => {
     if (err) {
       return res.status(400).json({
-        error: err,
+        error: err
       });
     }
 
-    res.status(204).json();
+    res.status(204).json({
+      info: data 
+    });
   });
 };

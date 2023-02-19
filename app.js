@@ -14,15 +14,12 @@ const  urlEncodeParser = bodyParser.urlencoded(
  app.use(jsonParser);
  app.use(urlEncodeParser);
  
- const ipFn = require("./middleware/getIpAddress");
- app.use("*",ipFn);
  
  /* Methods */
  app.get("/", (req, res, next) => {
      res.send("welcome to academic rest api");
  });
  
- //falta implementar la ruta de os
  const osRoutes = require("./routes/os.routes");
  const MobileRoutes = require("./routes/mobile_device.routes");
  

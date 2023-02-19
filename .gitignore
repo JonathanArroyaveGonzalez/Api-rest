@@ -143,7 +143,6 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 
-# *.txt ignore todos los archivos txt o private.txt solo ignora el archivo
-#private.txt
+
 node_modules
 package-lock.json
