@@ -25,6 +25,6 @@
   "dependencies": {
     "config": "^3.3.9",
     "express": "^4.18.2",
-    "mongoose": "^6.9.1"
+    "mongoose": "^6.9.2"
   }
 }
